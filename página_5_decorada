@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+</head>
+
+<body style="
+    padding: 20px;
+    background: linear-gradient(to right, #000000ee, #4A148C, #0070F3);
+">
+
+    <h1 style="
+    box-shadow: 0px 0px 20px whitesmoke;
+    width: 400px;
+    color: black;
+    margin: auto;
+    text-align: center;
+    background-color: whitesmoke;
+    border-radius: 10px;">
+        Tabuada
+    </h1>
+
+    <br><br><br><br><br><br>
+
+    <form action="page_5.php" method="POST">
+
+        <section style="
+        background-color: white;
+        border-radius: 20px;
+        width: 350px; 
+        min-height: 400px;
+        margin: auto;
+        padding: 30px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;">
+
+            <label for="numero_N">
+                Digite um número qualquer
+            </label>
+
+            <br>
+
+            <input 
+                type="number" 
+                name="numero_N" 
+                id="numero_N" 
+                placeholder="Digite um número"
+                style="
+                padding: 10px;
+                border-radius: 8px;
+                border: 1px solid gray;">
+
+            <br><br>
+
+            <button type="submit" style="
+                background-color: #4A148C; 
+                color: white;
+                border: 2px solid #7328ce;
+                border-radius: 5px;
+                width: 70px;
+                height: 30px;">
+                Enviar
+            </button>
+
+            <br>
+
+            <h2>Resultado</h2>
+
+            <div style="
+                background-color: #eeeeee;
+                border-radius: 10px;
+                padding: 10px 25px;
+                text-align: center;">
+
+                <?php
+
+                if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+                    $N = $_POST['numero_N'];
+
+                    for($i = 1; $i <= 10; $i++){
+
+                        $resultado = $i * $N;
+
+                        echo "{$i} X {$N} = {$resultado}<br>";
+
+                    }
+                }
+
+                ?>
+
+            </div>
+
+        </section>
+
+    </form>
+
+</body>
+</html>
